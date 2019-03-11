@@ -1,0 +1,8 @@
+//
+// Created by Philippe Nadon on 2019-03-11.
+//
+
+#ifndef ACCTDB_TRANSACTION_PROCESSOR_H
+#define ACCTDB_TRANSACTION_PROCESSOR_H
+
+#endif //ACCTDB_TRANSACTION_PROCESSOR_H
