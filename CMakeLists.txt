@@ -3,4 +3,4 @@ project(acctdb C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(acctdb acctdb.c acctdb.h transaction_processor.c transaction_processor.h)
+add_executable(acctdb acctdb.c acctdb.h transaction_processor.c transaction_processor.h acctdbEX.c)

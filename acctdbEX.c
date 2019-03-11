@@ -1,7 +1,3 @@
-//
-// Created by Philippe Nadon on 2019-03-11.
-//
-
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
