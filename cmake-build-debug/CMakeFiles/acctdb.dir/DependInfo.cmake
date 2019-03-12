@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/phil/Dropbox/Courses/CS380/4_assignment2/acctdb/acctdb.c" "/Users/phil/Dropbox/Courses/CS380/4_assignment2/acctdb/cmake-build-debug/CMakeFiles/acctdb.dir/acctdb.c.o"
-  "/Users/phil/Dropbox/Courses/CS380/4_assignment2/acctdb/acctdbEX.c" "/Users/phil/Dropbox/Courses/CS380/4_assignment2/acctdb/cmake-build-debug/CMakeFiles/acctdb.dir/acctdbEX.c.o"
-  "/Users/phil/Dropbox/Courses/CS380/4_assignment2/acctdb/transaction_processor.c" "/Users/phil/Dropbox/Courses/CS380/4_assignment2/acctdb/cmake-build-debug/CMakeFiles/acctdb.dir/transaction_processor.c.o"
+  "C:/Users/philt/Dropbox/Courses/CS380/4_assignment2/acctdb/acctdb.c" "C:/Users/philt/Dropbox/Courses/CS380/4_assignment2/acctdb/cmake-build-debug/CMakeFiles/acctdb.dir/acctdb.c.obj"
+  "C:/Users/philt/Dropbox/Courses/CS380/4_assignment2/acctdb/acctdbEX.c" "C:/Users/philt/Dropbox/Courses/CS380/4_assignment2/acctdb/cmake-build-debug/CMakeFiles/acctdb.dir/acctdbEX.c.obj"
+  "C:/Users/philt/Dropbox/Courses/CS380/4_assignment2/acctdb/transaction_processor.c" "C:/Users/philt/Dropbox/Courses/CS380/4_assignment2/acctdb/cmake-build-debug/CMakeFiles/acctdb.dir/transaction_processor.c.obj"
   )
-set(CMAKE_C_COMPILER_ID "AppleClang")
+set(CMAKE_C_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH

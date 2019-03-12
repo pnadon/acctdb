@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/cc -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/acctdb.dir/acctdb.c.o CMakeFiles/acctdb.dir/transaction_processor.c.o CMakeFiles/acctdb.dir/acctdbEX.c.o  -o acctdb 
