@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include "acctdb.h"
+#include "../acctdb.h"
 
 /*
 ssize_t write(
