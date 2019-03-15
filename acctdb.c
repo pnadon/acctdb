@@ -28,41 +28,23 @@ struct acct_data {
     double balance;
 } acct_data;
 
-void exit_status(int status) {
-    if (WIFEXITED(status))
-        printf("normal termination - exit status = %d\n",
-               WEXITSTATUS(status));
-    else if (WIFSIGNALED(status)) {
-        printf("abnormal termination - signal number = %d",
-               WTERMSIG(status));
-        if (WCOREDUMP(status))
-            printf(" (core dumped)");
-        printf("\n");
-    } else if (WIFSTOPPED(status))
-        printf("child stopped - signal number = %d\n",
-               WSTOPSIG(status));
-}
+const in OPEN_ERROR = -1;
+
+void exit_status(int status);
+void printRes( char *dbFileArg, int accSize);
 
 int main(int argc, char *argv[]) {
-    char *dbFileArg = argv[1];
-    int accSize = sizeof(acct_data);
     int dbFile;
     int stat;
-    pid_t pid;
-    int status;
-    int db;
-    int bytesRead;
-    unsigned totalTransactions = 0;
-    double totalBalances=  0;
-    int id = 0;
+    char *dbFileArg = argv[1];
+    int accSize = sizeof(acct_data);
     char *exec_process = "./transaction_processor";
 
     if (argc < 2) {
-        fprintf(stderr, "Please specify the database file, and transaction file(s)\n");
+        fprintf(stderr, "Please specify the database file, and transaction file(s)");
         exit(EXIT_FAILURE);
     }
-
-    if ((dbFile = open(argv[1], O_RDWR | O_CREAT, S_IWUSR | S_IRUSR)) < 1) {
+    if ((dbFile = open( dbFileArg, O_RDWR | O_CREAT, S_IWUSR | S_IRUSR)) < 1) {
         perror("Error creating or opening database file");
         exit(EXIT_FAILURE);
     } else {
@@ -71,11 +53,11 @@ int main(int argc, char *argv[]) {
 
     for (int i = 2; i < argc; i++) {
         if ((pid = fork()) < 0) {
-            fprintf(stderr, "Forking child process failed!\n");
+            perror("Forking child process failed!");
             exit(EXIT_FAILURE);
         } else if (pid == 0) {
             fprintf(stdout, "Forked child %d: %d\n", i - 1, getpid());
-            execlp(exec_process, exec_process, argv[1], argv[i], (char *) NULL);
+            execlp(exec_process, exec_process, dbFileArg, argv[i], (char *) NULL);
         }
     }
     if (pid > 0) {
@@ -86,15 +68,44 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    if( (db = open( argv[1], O_RDONLY)) == -1){
-        perror("Failed to open database file\n");
+    printRes( dbFileArg, accSize);
+
+    return 0;
+}
+
+void exit_status(int status) {
+    if (WIFEXITED(status))
+    printf("normal termination - exit status = %d\n",
+    WEXITSTATUS(status));
+    else if (WIFSIGNALED(status)) {
+    printf("abnormal termination - signal number = %d",
+    WTERMSIG(status));
+    if (WCOREDUMP(status))
+    printf(" (core dumped)");
+    printf("\n");
+    } else if (WIFSTOPPED(status))
+    printf("child stopped - signal number = %d\n",
+    WSTOPSIG(status));
+}
+
+void printRes( char *dbFileArg, int accSize) {
+    int bytesRead;
+    int dbFile;
+
+    unsigned totalTransactions = 0;
+    double totalBalances=  0;
+    int id = 0;
+
+    if( (dbFile = open( dbFileArg, O_RDONLY)) == OPEN_ERROR) {
+        perror("Failed to open database file");
+        exit(EXIT_FAILURE);
     }
-    while( read( db, &acct_data, accSize) != 0){
-        if ( bytesRead < 0){
+    while( read( dbFile, &acct_data, accSize) != 0) {
+        if ( bytesRead < 0) {
             perror("Error reading database file");
             exit( EXIT_FAILURE);
         }
-        else if( acct_data.transactions != 0){
+        else if( acct_data.transactions != 0) {
             totalTransactions += acct_data.transactions;
             totalBalances += acct_data.balance;
             printf("%4d%10d%14.2lf\n", id, acct_data.transactions, acct_data.balance);
@@ -103,6 +114,4 @@ int main(int argc, char *argv[]) {
     }
     printf("          ----     ---------\n");
     printf("%14d%14.2lf\n", totalTransactions, totalBalances);
-
-    return 0;
 }

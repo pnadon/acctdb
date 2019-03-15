@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/transaction_processor.c" line="15" />
-    <bookmark url="file://$PROJECT_DIR$/transaction_processor.c" line="21" />
+    <bookmark url="file://$PROJECT_DIR$/transaction_processor.c" line="23" />
+    <bookmark url="file://$PROJECT_DIR$/transaction_processor.c" line="58" />
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated />
@@ -15,11 +15,8 @@
   <component name="ChangeListManager">
     <list default="true" id="53c6ec1d-5d81-456c-b20a-7bc2251f89fe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/acctdb" beforeDir="false" afterPath="$PROJECT_DIR$/acctdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/acctdb.c" beforeDir="false" afterPath="$PROJECT_DIR$/acctdb.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbFile" beforeDir="false" afterPath="$PROJECT_DIR$/dbFile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extras/exitstat.c" beforeDir="false" afterPath="$PROJECT_DIR$/extras/exitstat.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction_processor" beforeDir="false" afterPath="$PROJECT_DIR$/transaction_processor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transaction_processor.c" beforeDir="false" afterPath="$PROJECT_DIR$/transaction_processor.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -32,22 +29,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extras/acctdbEX.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="24" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/acctdb.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="144">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -55,26 +40,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/acctdb.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
-              <caret line="83" column="39" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/extras/cpfile.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1066">
-              <caret line="131" column="5" lean-forward="true" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
+            <state relative-caret-position="751">
+              <caret line="116" column="1" lean-forward="true" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extras/cpfile.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3330">
+              <caret line="185" lean-forward="true" selection-start-line="185" selection-end-line="185" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/transaction_processor.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="859">
-              <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+            <state relative-caret-position="162">
+              <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -85,6 +70,12 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>stat</find>
+      <find>status</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -99,15 +90,16 @@
         <option value="$PROJECT_DIR$/sampleOut.txt" />
         <option value="$PROJECT_DIR$/acctdbEX.c" />
         <option value="$PROJECT_DIR$/extras/exitstat.c" />
-        <option value="$PROJECT_DIR$/transaction_processor.c" />
         <option value="$PROJECT_DIR$/acctdb.c" />
+        <option value="$PROJECT_DIR$/transaction_processor.c" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="5" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="174" />
+    <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="1435" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -185,6 +177,7 @@
       <workItem from="1552352617511" duration="239000" />
       <workItem from="1552581126091" duration="2169000" />
       <workItem from="1552621751077" duration="4110000" />
+      <workItem from="1552660162423" duration="5529000" />
     </task>
     <task id="LOCAL-00001" summary="added initial project">
       <created>1549582755646</created>
@@ -204,12 +197,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29029000" />
+    <option name="totallyTimeSpent" value="34558000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="5" width="1280" height="1435" extended-state="0" />
+    <frame x="35" y="23" width="1645" height="1027" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22572815" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1771678" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -223,7 +217,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5012626" side_tool="true" weight="0.3297062" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49873737" weight="0.32987553" />
-      <window_info anchor="bottom" id="CMake" order="11" sideWeight="0.49873737" weight="0.32951945" />
+      <window_info anchor="bottom" id="CMake" order="11" sideWeight="0.49873737" weight="0.32861805" />
       <window_info anchor="bottom" id="Docker" order="12" weight="0.3297062" />
       <window_info anchor="bottom" id="GitHub Pull Requests" order="13" weight="0.32883817" />
       <window_info anchor="bottom" id="Messages" order="14" visible="true" weight="0.3291874" />
@@ -260,51 +254,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extras/acctdbEX.c">
+    <entry file="file://$PROJECT_DIR$/extras/acctdbEX.c" />
+    <entry file="file://$PROJECT_DIR$/extras/exitstat.c" />
+    <entry file="file://$PROJECT_DIR$/acctdb.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="24" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="144">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/transaction_processor.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/extras/exitstat.c">
+    <entry file="file://$PROJECT_DIR$/extras/cpfile.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" selection-start-line="4" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/acctdb.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/transaction_processor.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="859">
-          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+        <state relative-caret-position="3330">
+          <caret line="185" lean-forward="true" selection-start-line="185" selection-end-line="185" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/acctdb.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="83" column="39" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
+        <state relative-caret-position="751">
+          <caret line="116" column="1" lean-forward="true" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extras/cpfile.c">
+    <entry file="file://$PROJECT_DIR$/transaction_processor.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1066">
-          <caret line="131" column="5" lean-forward="true" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
+        <state relative-caret-position="162">
+          <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
         </state>
       </provider>
     </entry>
