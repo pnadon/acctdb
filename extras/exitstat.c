@@ -2,9 +2,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-void
-exit_status( int status )
-{
+void exit_status( int status ) {
     if (WIFEXITED( status ))
 	printf("normal termination - exit status = %d\n",
 	       WEXITSTATUS( status ));
