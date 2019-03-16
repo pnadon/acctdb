@@ -60,17 +60,16 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
     if ((dbFile = open( dbFileArg, O_RDWR | O_CREAT, S_IWUSR | S_IRUSR)) < 1) {
-        perror("Error creating or opening database file");
-        exit(EXIT_FAILURE);
+        fatalsys("Error creating or opening database file");
     } else {
         close(dbFile);
     }
 
     for (int i = 2; i < argc; i++) {
         if ((pid = fork()) < 0) {
-            perror("Forking child process failed!");
-            exit(EXIT_FAILURE);
-        } else if (pid == 0) {
+            fatalsys("Forking child process failed!");
+        } 
+        else if (pid == 0) {
             fprintf(stdout, "Forked child %d: %d\n", i - 1, getpid());
             execlp(exec_process,
                    exec_process,
@@ -115,16 +114,14 @@ void printRes( char *dbFileArg, int accSize) {
     int id = 0;
 
     if( (dbFile = open( dbFileArg, O_RDONLY)) == OPEN_ERROR) {
-        perror("Failed to open database file");
-        exit(EXIT_FAILURE);
+        fatalsys("Failed to open database file");
     }
     while( read( dbFile, &acct_data, accSize) != 0) {
         if ( bytesRead < 0) {
-            perror("Error reading database file");
-            exit( EXIT_FAILURE);
+            fatalsys("Error reading database file");
         }
         else if( acct_data.transactions != 0) {
-          totalTransactions += acct_data.transactions;
+          	totalTransactions += acct_data.transactions;
             totalBalances += acct_data.balance;
             printf("%4d%10d%14.2lf\n",
                    id,
@@ -135,4 +132,9 @@ void printRes( char *dbFileArg, int accSize) {
     }
     printf("          ----     ---------\n");
     printf("%14d%14.2lf\n", totalTransactions, totalBalances);
+}
+
+void fatalsys( const char* msg ) {
+    perror( msg );
+    exit( EXIT_FAILURE );
 }

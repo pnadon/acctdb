@@ -46,12 +46,10 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
     if ((db = open(argv[1], O_RDWR)) == OPEN_ERROR) {
-        perror("Failed to open database file\n");
-        exit(EXIT_FAILURE);
+        fatalsys("Failed to open database file\n");
     }
     if ((transFile = fopen(argv[2], "r")) == NULL) {
-        perror("Failed to open transaction file\n");
-        exit(EXIT_FAILURE);
+        fatalsys("Failed to open transaction file\n");
     }
 
     rewind(transFile);
@@ -61,8 +59,7 @@ int main(int argc, char *argv[]) {
         lseek(db, -bytesRead, SEEK_CUR);
 
         if (bytesRead < 0) {
-            perror("Error reading database file");
-            exit(EXIT_FAILURE);
+            fatalsys("Error reading database file");
         } else if (bytesRead == 0) {
             acct_data.transactions = 0;
             acct_data.balance = 0;
@@ -79,9 +76,13 @@ int main(int argc, char *argv[]) {
 
     fclose(transFile);
     if (close(db) < 0) {
-        perror("Failed to close db File");
-        exit(EXIT_FAILURE);
+        fatalsys( "Failed to close db File");
     }
 
     return 0;
+}
+
+void fatalsys( const char* msg ) {
+    perror( msg );
+    exit( EXIT_FAILURE );
 }
