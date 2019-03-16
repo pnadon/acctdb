@@ -1,18 +1,31 @@
 /*
-Created by Philippe Nadon on 2019-03-11.
+acctdb.c
+
+Philippe Nadon
+AUCSC 380
+March 15, 2019
+
+Description:
+    A program which takes a database file and multiple transaction files,
+    and uses child processes to read the transaction files
+    and update the database file.
 
 PROGRAM STEPS:
 1. parses the command-line arguments;
-2. tries to open the database file that was named as the first command-line argument,
- and creates it if it doesn't exist;
-3. creates a child process for each transaction file named on the command line (if any),
- passing it the name of the binary database file and one of the transaction files (a text file);
-4. waits for each child process to finish, and displays its exit status when it does;
+2. tries to open the database file that was named as the first command-line
+    argument, and creates it if it doesn't exist;
+3. creates a child process for each transaction file named on the command line
+    (if any), passing it the name of the binary database file
+    and one of the transaction files (a text file);
+4. waits for each child process to finish, and displays its exit status when it
+    does;
 5. prints a summary of the account data from the database file,
- showing the transaction count and balance for all accounts that have a non-zero transaction count.
+    showing the transaction count and balance for all accounts that have a
+    non-zero transaction count.
 
-If no transaction files are listed on the command line, the parent process only does steps 1, 2, and 5
- (i.e., just prints a summary of the current data in the account database).
+If no transaction files are listed on the command line, the parent process only
+    does steps 1, 2, and 5 (i.e., just prints a summary of the current data
+    in the account database).
 */
 
 #include <stdio.h>
@@ -28,7 +41,7 @@ struct acct_data {
     double balance;
 } acct_data;
 
-const in OPEN_ERROR = -1;
+const int OPEN_ERROR = -1;
 
 void exit_status(int status);
 void printRes( char *dbFileArg, int accSize);
@@ -36,12 +49,14 @@ void printRes( char *dbFileArg, int accSize);
 int main(int argc, char *argv[]) {
     int dbFile;
     int stat;
+    pid_t pid;
     char *dbFileArg = argv[1];
     int accSize = sizeof(acct_data);
     char *exec_process = "./transaction_processor";
 
     if (argc < 2) {
-        fprintf(stderr, "Please specify the database file, and transaction file(s)");
+        fprintf(stderr,
+                "Please specify the database file\n");
         exit(EXIT_FAILURE);
     }
     if ((dbFile = open( dbFileArg, O_RDWR | O_CREAT, S_IWUSR | S_IRUSR)) < 1) {
@@ -57,7 +72,11 @@ int main(int argc, char *argv[]) {
             exit(EXIT_FAILURE);
         } else if (pid == 0) {
             fprintf(stdout, "Forked child %d: %d\n", i - 1, getpid());
-            execlp(exec_process, exec_process, dbFileArg, argv[i], (char *) NULL);
+            execlp(exec_process,
+                   exec_process,
+                   dbFileArg,
+                   argv[i],
+                   (char *) NULL);
         }
     }
     if (pid > 0) {
@@ -67,7 +86,6 @@ int main(int argc, char *argv[]) {
             exit_status(stat);
         }
     }
-
     printRes( dbFileArg, accSize);
 
     return 0;
@@ -106,9 +124,12 @@ void printRes( char *dbFileArg, int accSize) {
             exit( EXIT_FAILURE);
         }
         else if( acct_data.transactions != 0) {
-            totalTransactions += acct_data.transactions;
+          totalTransactions += acct_data.transactions;
             totalBalances += acct_data.balance;
-            printf("%4d%10d%14.2lf\n", id, acct_data.transactions, acct_data.balance);
+            printf("%4d%10d%14.2lf\n",
+                   id,
+                   acct_data.transactions,
+                   acct_data.balance);
         }
         id++;
     }

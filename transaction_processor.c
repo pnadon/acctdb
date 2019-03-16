@@ -1,9 +1,14 @@
 /*
-Created by Philippe Nadon on 2019-03-11.
-1. Open the database file and a transaction file (the one passed to it by name via the 'exec' system call)
+  acctdb.c
+
+  Philippe Nadon
+  AUCSC 380
+  March 15, 2019
+1. Open the database file and a transaction file
+    (the one passed to it by name via the 'exec' system call)
 2. Read each line of the transaction file
-3. modify the database by updating the transaction count and the balance for the account
- referenced by number in the transaction file.
+3. modify the database by updating the transaction count and the balance for
+    the account referenced by number in the transaction file.
 */
 
 // fscanf returns 2 if 2 items successfully scanned
@@ -21,21 +26,23 @@ struct acct_data {
 } acct_data;
 
 const int BUFFER_SIZE = 1024;
-const in OPEN_ERROR = -1;
+const int OPEN_ERROR = -1;
 
 int main(int argc, char *argv[]) {
 
     int id;
     int db;
+    int lineNum = 1;
     double transAmount;
     int bytesRead;
     FILE *transFile;
+    int numScanned;
 
     char buf[BUFFER_SIZE];
     int accSize = sizeof(struct acct_data);
 
     if (argc != 3) {
-        fprintf(stderr, "Incorrect argument count");
+        fprintf(stderr, "Incorrect argument count\n");
         exit(EXIT_FAILURE);
     }
     if ((db = open(argv[1], O_RDWR)) == OPEN_ERROR) {
@@ -48,7 +55,7 @@ int main(int argc, char *argv[]) {
     }
 
     rewind(transFile);
-    while (fscanf(transFile, "%d%lf", &id, &transAmount) != EOF) {
+    while ((numScanned = fscanf(transFile, "%d%lf", &id, &transAmount)) == 2) {
         lseek(db, accSize * id, SEEK_SET);
         bytesRead = read(db, &acct_data, accSize);
         lseek(db, -bytesRead, SEEK_CUR);
@@ -63,6 +70,11 @@ int main(int argc, char *argv[]) {
         acct_data.balance += transAmount;
         acct_data.transactions++;
         write(db, &acct_data, accSize);
+        lineNum++;
+    }
+    if( numScanned != EOF){
+      fprintf( stderr, "Incorrect entry on line %d \n", lineNum);
+      exit( EXIT_FAILURE);
     }
 
     fclose(transFile);
