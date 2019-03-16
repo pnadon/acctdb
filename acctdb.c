@@ -54,6 +54,8 @@ const int FIRST_TRANS_FILE_ARG = 2;
 const int PARENT_PID = 0;
 const int RETURN_SUCCESS = 0;
 
+void fatalsys(const char *msg);
+
 void exit_status(int status);
 
 void printRes(char *dbFileArg, int accSize);

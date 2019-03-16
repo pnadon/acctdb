@@ -37,6 +37,8 @@ const int RETURN_SUCCESS = 0;
 const int DB_ARG = 1;
 const int TRANS_ARG = 2;
 
+void fatalsys(const char *msg);
+
 int main(int argc, char *argv[]) {
 
     int id;
