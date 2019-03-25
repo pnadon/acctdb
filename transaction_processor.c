@@ -57,10 +57,10 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
     if ((db = open(argv[DB_ARG], O_RDWR)) == OPEN_ERROR) {
-        fatalsys("Failed to open database file\n");
+        fatalsys("Failed to open database file");
     }
     if ((transFile = fopen(argv[TRANS_ARG], "r")) == NULL) {
-        fatalsys("Failed to open transaction file\n");
+        fatalsys("Failed to open transaction file");
     }
 
     rewind(transFile);
